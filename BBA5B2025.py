@@ -11,7 +11,7 @@ client = gspread.authorize(creds)
 
 # Open the sheet by name
 sheet = client.open("BBA5")
-worksheet = sheet.worksheet("SectionB")  # 👈 use your actual sheet/tab name here
+worksheet = sheet.worksheet("BBASectionB")  # 👈 use your actual sheet/tab name here
 
 # Get the data as a DataFrame
 data = worksheet.get_all_records()
@@ -75,3 +75,4 @@ if st.button("Export Absentees"):
     else:
         absentee_csv = absentees.to_csv(index=False).encode('utf-8')
         st.download_button("Download Absentees CSV", absentee_csv, file_name=f"absentees_{date_col}.csv", mime="text/csv")
+

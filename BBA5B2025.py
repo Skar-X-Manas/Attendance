@@ -10,7 +10,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(st.secrets["google_shee
 client = gspread.authorize(creds)
 
 # Open the sheet by name
-sheet = client.open("BBA5")
+sheet = client.open("RGUATTEND")
 worksheet = sheet.worksheet("BBASectionB")  # 👈 use your actual sheet/tab name here
 
 # Get the data as a DataFrame
@@ -75,4 +75,5 @@ if st.button("Export Absentees"):
     else:
         absentee_csv = absentees.to_csv(index=False).encode('utf-8')
         st.download_button("Download Absentees CSV", absentee_csv, file_name=f"absentees_{date_col}.csv", mime="text/csv")
+
 
